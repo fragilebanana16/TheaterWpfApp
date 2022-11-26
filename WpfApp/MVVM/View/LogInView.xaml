@@ -5,22 +5,86 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp.MVVM.View"
         mc:Ignorable="d"
-        Title="LogInView" Height="450" Width="800"
+        Title="LogInView" Height="300" Width="400"
         WindowStyle="None"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
         MouseDown="Window_MouseDown"
-        AllowsTransparency="True"
-        Background="Transparent">
-    <Border CornerRadius="50" BorderThickness="5">
-
-        <Border.Background>
+        AllowsTransparency="True" Background="Transparent">
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Window.Loaded">
+            <EventTrigger.Actions>
+                <BeginStoryboard>
+                    <Storyboard RepeatBehavior="Forever" AutoReverse="True">
+                        <ColorAnimation  Storyboard.TargetName="colorCanvas1"  
+                            Storyboard.TargetProperty = "(Grid.Background).(LinearGradientBrush.GradientStops)[0].(GradientStop.Color)"  
+                            From="#8E44AD" To="LightBlue" Duration="0:0:5"/>
+                        <ColorAnimation Storyboard.TargetName="colorCanvas1"  
+                              Storyboard.TargetProperty = "(Grid.Background).(LinearGradientBrush.GradientStops)[1].(GradientStop.Color)"  
+                              From="LightBlue" To="White" Duration="0:0:5"/>
+                        <ColorAnimation Storyboard.TargetName="backBorder"  
+                              Storyboard.TargetProperty = "(Border.BorderBrush).(LinearGradientBrush.GradientStops)[0].(GradientStop.Color)"  
+                              From="Green" To="Red" Duration="0:0:1"/>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger.Actions>
+        </EventTrigger>
+    </Window.Triggers>
+    <Border x:Name="backBorder" CornerRadius="5" BorderThickness="2">
+        <Border.BorderBrush>
             <LinearGradientBrush StartPoint="1,1" EndPoint="0,0">
                 <GradientStop Color="Red" Offset="0"></GradientStop>
                 <GradientStop Color="Blue" Offset="0.75"></GradientStop>
                 <GradientStop Color="Green" Offset="1"></GradientStop>
             </LinearGradientBrush>
-        </Border.Background>
-        
+        </Border.BorderBrush>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.65*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Name="colorCanvas1">
+                <Grid.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#8E44AD" Offset="0.0" />
+                        <GradientStop Color="#cceeFF" Offset="1" />
+                    </LinearGradientBrush >
+                </Grid.Background>
+            </Grid>
+            <Grid Background="White" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.7*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Ellipse Grid.Column="1" Width="80" Height="80"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,-40,0,0">
+                    <Ellipse.Fill>
+                        <ImageBrush ImageSource="/Images/login.jpg"/>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <StackPanel Grid.Row="1" Grid.Column="1"  HorizontalAlignment="Center" Margin="-60,-20,0,0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="0" Margin="0,-10,0,0">Name</TextBlock>
+                        <ComboBox IsEditable="True" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" Width="120" Margin="0,0,0,10"></ComboBox>
+                        <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,0,14,0">Password</TextBlock>
+                        <PasswordBox Grid.Row="1" Grid.Column="1" PasswordChar="*" VerticalAlignment="Center" HorizontalAlignment="Right" Width="120"></PasswordBox>
+                        <Button Grid.Row="2" Grid.Column="1" Content="Confirm" Margin="0,10,0,0" Click="Button_Click"/>
+                    </Grid>
+                </StackPanel>
+            </Grid>
+        </Grid>
     </Border>
 </Window>
