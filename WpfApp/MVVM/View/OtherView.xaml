@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="WpfApp.MVVM.View.OtherView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfApp.MVVM.View"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <TextBlock FontSize="30" Text="OtherPage" HorizontalAlignment="Center" VerticalAlignment="Center" MouseDown="TextBlock_MouseDown"></TextBlock>
+            <StackPanel Orientation="Horizontal" Height="200">
+                <Image x:Name="img" Width="100" Height="148" Margin="100"></Image>
+                <Image x:Name="img2" Width="100" Height="148"></Image>
+                <Image x:Name="bindUrl" Width="100" Height="148"></Image>
+            </StackPanel>
+        </StackPanel>
+        <DataGrid IsReadOnly="True" Grid.Row="1" ItemsSource="{Binding Entries}">
+                
+        </DataGrid>
+    </Grid>
+</UserControl>
