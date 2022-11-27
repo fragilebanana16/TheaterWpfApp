@@ -135,12 +135,12 @@
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <Ellipse Grid.Column="1" Width="80" Height="80"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,-40,0,0">
+                    <Ellipse Grid.Column="1" Width="70" Height="70"  HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,-40,0,0">
                         <Ellipse.Fill>
                             <ImageBrush ImageSource="/Images/login.jpg"/>
                         </Ellipse.Fill>
                     </Ellipse>
-                    <StackPanel Grid.Row="1" Grid.Column="1"  HorizontalAlignment="Center" Margin="-60,-20,0,0">
+                    <StackPanel Grid.Row="1" Grid.Column="1"  HorizontalAlignment="Center" Margin="-0,-30,0,0">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition/>
@@ -151,11 +151,11 @@
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
-                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="0" Grid.Column="0" Margin="0,-10,0,0"><Run Text="Name"/></TextBlock>
-                            <ComboBox IsEditable="True" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" Width="120" Margin="0,0,0,10"/>
-                            <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,0,14,0"><Run Text="Password"/></TextBlock>
-                            <PasswordBox Grid.Row="1" Grid.Column="1" PasswordChar="*" VerticalAlignment="Center" HorizontalAlignment="Right" Width="120"/>
-                            <Button Grid.Row="2" Grid.Column="1" Content="Confirm" Margin="0,10,0,0" Click="Button_Click"/>
+                            <ComboBox Text="hrt" IsEditable="True" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" Width="160" Margin="0,0,0,10">
+                            </ComboBox>
+                            <PasswordBox Password="123" Grid.Row="1" Grid.Column="1" PasswordChar="*" VerticalAlignment="Center" HorizontalAlignment="Right" Width="160"/>
+                            <Button Grid.Row="2" Grid.Column="1" Foreground="White" Content="Log In" Margin="0,10,0,0" Width="160" Background="#FF07BDFD" Click="Button_Click">
+                            </Button>
                         </Grid>
                     </StackPanel>
                 </Grid>
