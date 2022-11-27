@@ -100,10 +100,6 @@ H:\csharpProjects\TheaterWpfApp\WpfApp\obj\Debug\WpfApp_MarkupCompile.cache
 H:\csharpProjects\TheaterWpfApp\WpfApp\obj\Debug\WpfApp_MarkupCompile.lref
 H:\csharpProjects\TheaterWpfApp\WpfApp\obj\Debug\App.baml
 H:\csharpProjects\TheaterWpfApp\WpfApp\obj\Debug\MainWindow.baml
-H:\csharpProjects\TheaterWpfApp\WpfApp\obj\Debug\HomeView.baml
-H:\csharpProjects\TheaterWpfApp\WpfApp\obj\Debug\LogInView.baml
-H:\csharpProjects\TheaterWpfApp\WpfApp\obj\Debug\MovieView.baml
-H:\csharpProjects\TheaterWpfApp\WpfApp\obj\Debug\OtherView.baml
 H:\csharpProjects\TheaterWpfApp\WpfApp\obj\Debug\MVVM\View\LogInView.baml
 H:\csharpProjects\TheaterWpfApp\WpfApp\obj\Debug\WpfApp.g.resources
 H:\csharpProjects\TheaterWpfApp\WpfApp\obj\Debug\WpfApp.Properties.Resources.resources
@@ -112,3 +108,4 @@ H:\csharpProjects\TheaterWpfApp\WpfApp\obj\Debug\WpfApp.csproj.CoreCompileInputs
 H:\csharpProjects\TheaterWpfApp\WpfApp\obj\Debug\WpfApp.csproj.CopyComplete
 H:\csharpProjects\TheaterWpfApp\WpfApp\obj\Debug\WpfApp.exe
 H:\csharpProjects\TheaterWpfApp\WpfApp\obj\Debug\WpfApp.pdb
+H:\csharpProjects\TheaterWpfApp\WpfApp\obj\Debug\Theme\MinimizeCloseTheme.baml
