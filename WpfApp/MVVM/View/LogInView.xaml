@@ -71,6 +71,13 @@
                         </Style.Triggers>
                     </Style>
                 </Button.Style>
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"></ContentPresenter>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
                 <Image Source="/Images/minus.png" Width="18"></Image>
             </Button>
             <Button BorderThickness="0" Grid.Row="0" Grid.Column="2" Panel.ZIndex="1" Click="Button_CloseClick">
@@ -93,6 +100,13 @@
                         </Style.Triggers>
                     </Style>
                 </Button.Style>
+                <Button.Template>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border CornerRadius="0,3,0,0" Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"></ContentPresenter>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
                 <Image Source="/Images/close.png" Width="18"></Image>
             </Button>
             <!--Back half-->

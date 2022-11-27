@@ -108,4 +108,3 @@ H:\csharpProjects\TheaterWpfApp\WpfApp\obj\Debug\WpfApp.csproj.CoreCompileInputs
 H:\csharpProjects\TheaterWpfApp\WpfApp\obj\Debug\WpfApp.csproj.CopyComplete
 H:\csharpProjects\TheaterWpfApp\WpfApp\obj\Debug\WpfApp.exe
 H:\csharpProjects\TheaterWpfApp\WpfApp\obj\Debug\WpfApp.pdb
-H:\csharpProjects\TheaterWpfApp\WpfApp\obj\Debug\Theme\MinimizeCloseTheme.baml
