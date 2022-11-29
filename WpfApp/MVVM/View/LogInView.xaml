@@ -4,7 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp.MVVM.View"
-        xmlns:hc="https://handyorg.github.io/handycontrol" x:Class="WpfApp.MVVM.View.LogInView"
+        xmlns:hc="https://handyorg.github.io/handycontrol" xmlns:customcontrols="clr-namespace:WpfApp.CustomControls" x:Class="WpfApp.MVVM.View.LogInView"
+        xmlns:viewModel="clr-namespace:WpfApp.MVVM.ViewModel"
         mc:Ignorable="d"
         Title="LogInView" Height="300" Width="400"
         WindowStyle="None"
@@ -12,6 +13,17 @@
         WindowStartupLocation="CenterScreen"
         MouseDown="Window_MouseDown"
         AllowsTransparency="True" Background="Transparent">
+    <Window.DataContext>
+        <viewModel:LogInViewModel>
+        </viewModel:LogInViewModel>
+    </Window.DataContext>
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="boolConverter"></BooleanToVisibilityConverter>
+    </Window.Resources>
+    <Window.Visibility>
+        <Binding Path="IsViewVisible" Mode="TwoWay" Converter="{StaticResource boolConverter}"></Binding>
+    </Window.Visibility>
+
     <Window.Triggers>
         <EventTrigger RoutedEvent="FrameworkElement.Loaded">
             <BeginStoryboard>
@@ -151,10 +163,10 @@
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
-                            <ComboBox Text="hrt" IsEditable="True" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" Width="160" Margin="0,0,0,10">
+                            <ComboBox Name="UserName" Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" IsEditable="True" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" Width="160" Margin="0,0,0,10">
                             </ComboBox>
-                            <PasswordBox Password="123" Grid.Row="1" Grid.Column="1" PasswordChar="*" VerticalAlignment="Center" HorizontalAlignment="Right" Width="160"/>
-                            <Button Grid.Row="2" Grid.Column="1" Foreground="White" Content="Log In" Margin="0,10,0,0" Width="160" Background="#FF07BDFD" Click="Button_Click">
+                            <customcontrols:BindablePasswordBox Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" Width="160"/>
+                            <Button Command="{Binding LoginCommand}" Grid.Row="2" Grid.Column="1" Foreground="White" Content="Log In" Margin="0,10,0,0" Width="160" Background="#FF07BDFD">
                             </Button>
                         </Grid>
                     </StackPanel>
