@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -40,7 +41,6 @@ namespace WpfApp.MVVM.View
 
         private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
         {
-
             var web = new HtmlWeb();
             var doc = web.Load("https://movie.douban.com/top250?start=175&filter=");
             HtmlNodeCollection movies = doc.DocumentNode.SelectNodes("//*[@class='item']");
@@ -52,7 +52,7 @@ namespace WpfApp.MVVM.View
                 var rating = HttpUtility.HtmlDecode(mv.SelectSingleNode(".//span[@class='rating_num']")?.InnerText);
                 var ratingPeople = HttpUtility.HtmlDecode(starNode.SelectNodes(".//span")[3]?.InnerText);
                 var topComment = HttpUtility.HtmlDecode(mv.SelectSingleNode(".//span[@class='inq']")?.InnerText); // no comments found, string will be null, null will output empty
-                Console.WriteLine("{0} - {1} - {2} - {3}", title, rating, topComment, ratingPeople);
+                //Console.WriteLine("{0} - {1} - {2} - {3}", title, rating, topComment, ratingPeople);
 
                 scraper.Entries.Add(new EntryModel { Title = title, Description = topComment });
             }
@@ -111,7 +111,6 @@ namespace WpfApp.MVVM.View
         }
     }
 
-
     public class Scraper
     {
         private ObservableCollection<EntryModel> _entries = new ObservableCollection<EntryModel>();
@@ -122,6 +121,8 @@ namespace WpfApp.MVVM.View
             set { _entries = value; }
         }
     }
+
+    [DebuggerDisplay("Title: {Title,nq}, Description: {Description, nq}")]
     public class EntryModel
     {
         public string Title { get; set; }

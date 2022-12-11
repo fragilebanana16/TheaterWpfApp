@@ -1,22 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Security.Principal;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using WpfApp.Core;
+using WpfApp.MVVM.Model;
+using WpfApp.Repository;
 
 namespace WpfApp.MVVM.ViewModel
 {
     class LogInViewModel : ObservableObject
     {
-        private string _username="hrt";
+        private string _username="Hrt";
 
         private string _password=" ";
 
         private string _errormessage;
 
         private bool _isViewVisible=true;
+
+        private IUserRepository userRepository;
 
         public string Username 
         { 
@@ -38,7 +45,7 @@ namespace WpfApp.MVVM.ViewModel
             }
         }
 
-        public string Errormessage 
+        public string ErrorMessage 
         { 
             get => _errormessage;
             set
@@ -65,6 +72,7 @@ namespace WpfApp.MVVM.ViewModel
 
         public LogInViewModel()
         {
+            userRepository = new UserRepository();
             LoginCommand = new RelayCommand(ExecuteLoginCommand, CanExecuteLoginCommand);
             RecoverPasswordCommand = new RelayCommand(p => ExecuteRecoverPasswordCommand("", ""));
         }
@@ -87,7 +95,17 @@ namespace WpfApp.MVVM.ViewModel
 
         private void ExecuteLoginCommand(object obj)
         {
-            throw new NotImplementedException();
+            var isValidUser = userRepository.AuthenticateUser(new NetworkCredential(Username, Password));
+            if (isValidUser)
+            {
+                Thread.CurrentPrincipal = new GenericPrincipal(
+                    new GenericIdentity(Username), null); // 注册用户?
+                IsViewVisible = false;
+            }
+            else
+            {
+                ErrorMessage = "* Invalid username or password";
+            }
         }
     }
 }

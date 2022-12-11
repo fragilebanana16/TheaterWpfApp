@@ -32,7 +32,7 @@
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
 
-            <TextBlock Text="YOLO" 
+            <TextBlock Text="{Binding CurrentUserAccount.Username}" 
                        Foreground="White" 
                        HorizontalAlignment="Left" 
                        VerticalAlignment="Center" 

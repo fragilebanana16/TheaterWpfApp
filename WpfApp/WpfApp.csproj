@@ -112,6 +112,9 @@
     <Compile Include="CustomControls\BindablePasswordBox.xaml.cs">
       <DependentUpon>BindablePasswordBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MVVM\Model\IUserRepository.cs" />
+    <Compile Include="MVVM\Model\UserAccountModel.cs" />
+    <Compile Include="MVVM\Model\UserModel.cs" />
     <Compile Include="MVVM\ViewModel\HomeViewModel.cs" />
     <Compile Include="MVVM\ViewModel\LogInViewModel.cs" />
     <Compile Include="MVVM\ViewModel\MainViewModel.cs" />
@@ -129,6 +132,8 @@
     <Compile Include="MVVM\View\OtherView.xaml.cs">
       <DependentUpon>OtherView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Repository\RepositoryBase.cs" />
+    <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Utility\VideoApp.cs" />
     <Page Include="CustomControls\BindablePasswordBox.xaml">
       <SubType>Designer</SubType>
@@ -203,9 +208,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="MVVM\Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Images\ikun.png" />
   </ItemGroup>

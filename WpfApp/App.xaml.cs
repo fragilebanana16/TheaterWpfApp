@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using WpfApp.MVVM.View;
 
 namespace WpfApp
 {
@@ -13,5 +14,19 @@ namespace WpfApp
     /// </summary>
     public partial class App : Application
     {
+        protected void ApplicationStart(object sender, StartupEventArgs e)
+        {
+            var loginView = new LogInView();
+            loginView.Show();
+            loginView.IsVisibleChanged += (s, ev) =>
+            {
+                if (loginView.IsVisible == false && loginView.IsLoaded)
+                {
+                    var mainView = new MainWindow();
+                    mainView.Show();
+                    loginView.Close();
+                }
+            };
+        }
     }
 }

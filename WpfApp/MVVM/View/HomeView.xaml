@@ -34,7 +34,6 @@
                         </Image.RenderTransform>
                     </Image>
                 </Grid>
-
             </Border>
 
             <Border Width="200" Height="200" CornerRadius="10" Margin="45,0,0,0">

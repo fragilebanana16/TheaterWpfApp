@@ -4,7 +4,9 @@
              xmlns:local="clr-namespace:WpfApp"
              xmlns:viewModel="clr-namespace:WpfApp.MVVM.ViewModel"
              xmlns:view="clr-namespace:WpfApp.MVVM.View"
-             StartupUri="MVVM/View/LogInView.xaml">
+             Startup="ApplicationStart"
+             > 
+    <!--注意这里的Startup与StartupUrl不同-->
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
