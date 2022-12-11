@@ -14,8 +14,14 @@ namespace WpfApp
     /// </summary>
     public partial class App : Application
     {
+
+
         protected void ApplicationStart(object sender, StartupEventArgs e)
         {
+#if DEBUG
+            var mainView = new MainWindow();
+            mainView.Show();
+#else
             var loginView = new LogInView();
             loginView.Show();
             loginView.IsVisibleChanged += (s, ev) =>
@@ -27,6 +33,7 @@ namespace WpfApp
                     loginView.Close();
                 }
             };
+#endif
         }
     }
 }

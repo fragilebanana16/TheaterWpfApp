@@ -76,18 +76,32 @@ namespace WpfApp.MVVM.ViewModel
 
         private void LoadCurrentUserData()
         {
-            var user = userRepository.GetByUsername(Thread.CurrentPrincipal.Identity.Name);
-            if (user != null)
+            try
             {
-                CurrentUserAccount.Username = user.Username;
-                CurrentUserAccount.DisplayName = $"Welcome {user.ID} {user.Email} ;)";
-                CurrentUserAccount.ProfilePicture = null;
+#if DEBUG
+
+#else
+                var user = userRepository.GetByUsername(Thread.CurrentPrincipal.Identity.Name);
+                if (user != null)
+                {
+                    CurrentUserAccount.Username = user.Username;
+                    CurrentUserAccount.DisplayName = $"Welcome {user.ID} {user.Email} ;)";
+                    CurrentUserAccount.ProfilePicture = null;
+                }
+                else
+                {
+                    CurrentUserAccount.DisplayName = "Invalid user, not logged in";
+                    //Hide child views.
+                }
+#endif
+
             }
-            else
+            catch (Exception)
             {
-                CurrentUserAccount.DisplayName = "Invalid user, not logged in";
-                //Hide child views.
+
+                throw;
             }
+
         }
     }
 }

@@ -11,17 +11,24 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0">
             <TextBlock FontSize="30" Text="OtherPage" HorizontalAlignment="Center" VerticalAlignment="Center" MouseDown="TextBlock_MouseDown"></TextBlock>
+            <TextBlock FontSize="30" Text="AsyncTAP" HorizontalAlignment="Center" VerticalAlignment="Center" MouseDown="TextBlockEAP_MouseDown"></TextBlock>
             <StackPanel Orientation="Horizontal" Height="200">
                 <Image x:Name="img" Width="100" Height="148" Margin="100"></Image>
                 <Image x:Name="img2" Width="100" Height="148"></Image>
                 <Image x:Name="bindUrl" Width="100" Height="148"></Image>
             </StackPanel>
+
         </StackPanel>
         <DataGrid IsReadOnly="True" Grid.Row="1" ItemsSource="{Binding Entries}">
                 
         </DataGrid>
+
+        <WrapPanel x:Name="imgPanel" Grid.Row="2" Width="auto" Height="148" Background="Red">
+            <TextBlock Text="123"></TextBlock>
+        </WrapPanel>
     </Grid>
 </UserControl>

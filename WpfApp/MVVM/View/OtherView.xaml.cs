@@ -1,4 +1,5 @@
-﻿using HtmlAgilityPack;
+﻿using HandyControl.Expression.Shapes;
+using HtmlAgilityPack;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -7,18 +8,14 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Web;
-using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using WpfApp.Utility;
+using Image = System.Windows.Controls.Image;
 
 namespace WpfApp.MVVM.View
 {
@@ -109,6 +106,54 @@ namespace WpfApp.MVVM.View
                 return bitmapimage;
             }
         }
+
+        private List<Image> _images = new List<Image>();
+
+        private WebDownLoader _webDownLoader = new WebDownLoader();
+        private static readonly List<string> s_Domains = new List<string>
+                                                             {
+																 //"google.com",
+																 //"bing.com",
+																 //"oreilly.com",
+																 //"simple-talk.com",
+																 //"microsoft.com",
+																 //"facebook.com",
+																 //"twitter.com",
+																 //"reddit.com",
+                                                                 "baidu.com",
+                                                             };
+        private async void TextBlockEAP_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            // This line is for synchronous exception simulation demo.
+            //Task<Image>[] tasks = s_Domains.Select(GetFavicon).ToArray();
+
+            Task<Image>[] tasks = s_Domains.Select(_webDownLoader.GetFaviconInternal).ToArray();
+            // Create the task that aggregates several tasks by calling a Task.WhenAll(Task[]) combinator.
+            Task<Image[]> results = Task.WhenAll(tasks);
+            System.Diagnostics.Debug.Print(results.Status.ToString()); // Returns "WaitingForActivation".
+            try
+            {
+                foreach (var image in await results)
+                {
+                    ShowFavicon(image);
+                }
+            }
+            catch (Exception ex)
+            {
+                // We can compare what exception is thrown on "await results" completion with the actual exceptions put to the
+                // Task<Image[]>.Exception.InnerExceptions list.
+                System.Diagnostics.Debug.Print("Thrown on await: {0}", ex);
+                foreach (Exception o in results.Exception.InnerExceptions)
+                {
+                    System.Diagnostics.Debug.Print("Put in the inner exception list: {0}", o);
+                }
+            }
+        }
+        private void ShowFavicon(Image imageControl)
+        {
+            imgPanel.Children.Add(imageControl);
+        }
+
     }
 
     public class Scraper

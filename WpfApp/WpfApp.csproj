@@ -135,6 +135,7 @@
     <Compile Include="Repository\RepositoryBase.cs" />
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Utility\VideoApp.cs" />
+    <Compile Include="Utility\WebDownLoader.cs" />
     <Page Include="CustomControls\BindablePasswordBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
