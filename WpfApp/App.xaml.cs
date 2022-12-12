@@ -24,6 +24,7 @@ namespace WpfApp
         protected void ApplicationStart(object sender, StartupEventArgs e)
         {
 #if DEBUG
+            log.Error("Hello Log4Net");
             var mainView = new MainWindow();
             mainView.Show();
 #else
