@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using System.Windows;
 using WpfApp.MVVM.View;
 
+//配置的更改可见
+[assembly:log4net.Config.XmlConfigurator(Watch =true)]
 namespace WpfApp
 {
     /// <summary>
@@ -14,7 +16,10 @@ namespace WpfApp
     /// </summary>
     public partial class App : Application
     {
-
+        /// <summary>
+        /// 日志名称是文件名，采用反射获取，反射有性能问题，但用的不多
+        /// </summary>
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         protected void ApplicationStart(object sender, StartupEventArgs e)
         {
