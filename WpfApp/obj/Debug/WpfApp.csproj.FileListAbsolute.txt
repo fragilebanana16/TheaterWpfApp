@@ -110,3 +110,5 @@ H:\csharpProjects\TheaterWpfApp\WpfApp\obj\Debug\WpfApp.exe
 H:\csharpProjects\TheaterWpfApp\WpfApp\obj\Debug\WpfApp.pdb
 H:\csharpProjects\TheaterWpfApp\WpfApp\obj\Debug\CustomControls\BindablePasswordBox.g.cs
 H:\csharpProjects\TheaterWpfApp\WpfApp\obj\Debug\CustomControls\BindablePasswordBox.baml
+H:\csharpProjects\TheaterWpfApp\WpfApp\bin\Debug\log4net.dll
+H:\csharpProjects\TheaterWpfApp\WpfApp\bin\Debug\log4net.xml

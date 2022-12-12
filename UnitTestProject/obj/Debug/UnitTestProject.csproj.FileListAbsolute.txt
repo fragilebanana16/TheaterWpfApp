@@ -86,3 +86,5 @@ H:\csharpProjects\TheaterWpfApp\UnitTestProject\obj\Debug\UnitTestProject.csproj
 H:\csharpProjects\TheaterWpfApp\UnitTestProject\obj\Debug\UnitTestProject.csproj.CopyComplete
 H:\csharpProjects\TheaterWpfApp\UnitTestProject\obj\Debug\UnitTestProject.dll
 H:\csharpProjects\TheaterWpfApp\UnitTestProject\obj\Debug\UnitTestProject.pdb
+H:\csharpProjects\TheaterWpfApp\UnitTestProject\bin\Debug\log4net.dll
+H:\csharpProjects\TheaterWpfApp\UnitTestProject\bin\Debug\log4net.xml
